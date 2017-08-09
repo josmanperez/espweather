@@ -43,7 +43,12 @@ $app->group("/estaciones", function () use ($app) {
         if (empty($json)) {
             return NotFoundError::sendError($response);
         }
-        $datos = $mapper->map($json, new Ambiente());
-        print_r($datos);
+        $datos = $mapper->map($json['listUltimos10min'][0], new Ambiente());
+        if (empty($datos)) {
+            return NotFoundError::sendError($response);
+        }
+        return $response
+            ->withStatus(200)
+            ->withJson(array("success" => true, "data" => $datos));
     });
 });

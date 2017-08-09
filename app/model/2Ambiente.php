@@ -13,7 +13,7 @@ class Ambiente extends Estacion
     const TEMPERATURA = 'TA_AVG_1.5m';
 
     /**
-     * @var listaMedidas
+     * @var listaMedidas[]
      */
     public $listaMedidas;
 
@@ -56,7 +56,7 @@ class Ambiente extends Estacion
 
 }
 
-class ListaMedidas extends Ambiente
+class ListaMedidas
 {
     /**
      * @var string
